@@ -1,0 +1,14 @@
+<div
+  (window:resize)="onResize()"
+  (panstart)="onPanStart($event)"
+  (panmove)="onPanMove($event)"
+  (panend)="onPanEnd($event)"
+  (pinchstart)="onPinchStart($event)"
+  (pinchin)="onPinchZoom($event)"
+  (pinchout)="onPinchZoom($event)"
+  (pinchmove)="onPinchMove($event)"
+  (pinchend)="onPinchEnd($event)"
+  (press)="onPress($event)"
+>
+  <canvas #canvas></canvas>
+</div>

@@ -1,0 +1,18 @@
+<base-panel [title]="'Scene Explorer'">
+<table class="explorer-panel">
+    <tbody>
+        <tr *ngFor="let pair of items; let i = index">
+            <td class="text-normal" 
+            [ngClass]="{
+                'even': i % 2 === 0, 
+                'odd': i % 2 !== 0, 
+                'selected': isItemSelected(pair.first),
+                'flat-top': isItemSelected(pair.first) && i > 0 && isItemSelected(items[i - 1].first),
+                'flat-bottom': isItemSelected(pair.first) && i < items.length - 1 && isItemSelected(items[i + 1].first)}"
+                (mousedown)="onMouseDown($event, pair.first)">
+                {{ pair.second }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+</base-panel>

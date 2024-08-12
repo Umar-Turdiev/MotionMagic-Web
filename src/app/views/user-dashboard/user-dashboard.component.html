@@ -1,0 +1,5 @@
+<h1 class="text-page-title">User Dashboard</h1>
+<p class="text-large" *ngIf="user">Welcome, {{ user.displayName }}!</p>
+<button class="custom-button" (click)="logOut()">
+  <span>Sign out</span>
+</button>

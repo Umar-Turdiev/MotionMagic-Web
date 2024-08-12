@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://motionmagic.app/</loc>
+      <lastmod>2024-06-08</lastmod>
+      <priority>1.00</priority>
+   </url>
+   <url>
+      <loc>https://motionmagic.app/login</loc>
+      <lastmod>2024-06-08</lastmod>
+      <priority>0.90</priority>
+   </url>
+   <url>
+      <loc>https://motionmagic.app/signup</loc>
+      <lastmod>2024-07-15</lastmod>
+      <priority>0.90</priority>
+   </url>
+   <url>
+      <loc>https://motionmagic.app/password-reset</loc>
+      <lastmod>2024-07-15</lastmod>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://motionmagic.app/change-password</loc>
+      <lastmod>2024-07-15</lastmod>
+      <priority>0.80</priority>
+   </url>
+   <url>
+      <loc>https://motionmagic.app/simulator</loc>
+      <lastmod>2024-07-15</lastmod>
+      <priority>0.95</priority>
+   </url>
+</urlset>

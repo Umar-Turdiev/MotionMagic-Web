@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 90px;
+  padding: 20px 0;
+}
+
+.container > * {
+  margin-bottom: 10px;
+}
+
+.container > :last-child {
+  margin-bottom: 0;
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+svg {
+  transform: translate(-20px, 0);
+  transition: ease-in-out 0.15s;
+}
+
+svg:hover {
+  transform: translate(0px, 0) !important;
+}
+
+path {
+  stroke: none;
+  stroke-width: 0;
+}
+
+.pen-list > * {
+  margin-bottom: 10px;
+}
+
+.pen-list > :last-child {
+  margin-bottom: 0;
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.pen-list.cdk-drop-list-dragging .pen-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

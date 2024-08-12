@@ -1,0 +1,14 @@
+<div class="dropdown-container" [style.width]="width">
+    <div class="horizontal-stack-layout">
+        <select class="text-normal" [(ngModel)]="selectedValue" (ngModelChange)="onValueChange($event)">
+            <ng-content></ng-content>
+        </select>
+        <div class="dropdown-arrow">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11.793" height="6.922" viewBox="0 0 11.793 6.922">
+                <path id="Down" d="M0,5.112,4.836,0,9.672,5.112" transform="translate(10.732 6.172) rotate(180)" fill="none" stroke-width="1.5"/>
+            </svg>  
+        </div>
+    </div>
+    
+    <div class="underline has-border"></div>
+</div>

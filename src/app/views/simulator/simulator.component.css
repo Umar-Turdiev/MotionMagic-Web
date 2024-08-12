@@ -1,0 +1,192 @@
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.viewport-area {
+  width: 100%;
+  height: 100%;
+}
+
+.panel-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 10px;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . .";
+}
+
+.left-column {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+edit-toolbar {
+  pointer-events: all;
+}
+
+pencil-bar {
+  pointer-events: all;
+}
+
+.middle-column {
+  justify-content: center;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.right-column > * {
+  margin-top: 10px;
+}
+
+.right-column > :first-child {
+  margin-top: 0;
+}
+
+.menu-bar {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+}
+
+scene-explorer-panel {
+  pointer-events: all;
+}
+
+.scene-explorer-section {
+  max-height: 35%;
+}
+
+properties-panel {
+  pointer-events: all;
+}
+
+.properties-section {
+  flex-grow: 1; /* Use remaining space */
+  overflow: hidden;
+}
+
+.play-pause-control {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: fit-content;
+}
+
+.zoom-indicator {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+
+  width: 80px;
+  height: 40px;
+  font-size: 22px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.zoom-indicator.active {
+  opacity: 1;
+}
+
+.open-solver-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.solver-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.show-solver-popup {
+  opacity: 1;
+  filter: blur(0);
+  transition: opacity 0.15s ease;
+  pointer-events: all;
+}
+
+.dim-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background-color: #00000091;
+}
+
+.close-solver-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+solver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+solver.reveal {
+  animation: slide-in 0.3s ease-out;
+  opacity: 1;
+}
+
+@keyframes slide-in {
+  from {
+    top: 90%;
+    opacity: 0;
+  }
+  to {
+    top: 50%;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,522 @@
+<div class="container">
+  <div [ngClass]="{ selected: selected === true }" (click)="onClick($event)">
+    <svg *ngIf="penProperties.type === 'pen'">
+      <defs>
+        <linearGradient
+          id="linear-gradient"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#f4f4f4" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Base"
+          x="0"
+          y="0"
+          width="47.58"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <linearGradient
+          id="linear-gradient-2-pen"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#ebebeb" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Head"
+          x="29.58"
+          y="0"
+          width="48.42"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-2" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-2" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <filter
+          id="Color_Band"
+          x="24.58"
+          y="0"
+          width="23"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-3" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-3" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="Pen" transform="translate(69 6) rotate(90)">
+        <g transform="matrix(0, -1, 1, 0, -6, 69)" filter="url(#Base)">
+          <rect
+            id="Base-2"
+            data-name="Base"
+            width="22"
+            height="55"
+            transform="translate(38.58 6) rotate(90)"
+            fill="url(#linear-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 69)" filter="url(#Head)">
+          <path
+            id="Head-2"
+            data-name="Head"
+            d="M475,228.451c0-8.517,6.876-30.42,11-30.42s11,21.9,11,30.417"
+            transform="translate(267.03 -469) rotate(90)"
+            fill="url(#linear-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 69)" filter="url(#Color_Band)">
+          <rect
+            id="Color_Band-2"
+            data-name="Color Band"
+            width="22"
+            height="5"
+            transform="translate(38.58 6) rotate(90)"
+            [style.fill]="penProperties.color + 'bf'"
+          />
+        </g>
+        <path
+          id="Pen_Tip"
+          data-name="Pen Tip"
+          d="M474.889,203.856c.933-2.277,2.926-5.825,4.605-5.825s3.673,3.777,4.586,5.825"
+          transform="translate(-468.488 -198.031)"
+          [style.fill]="penProperties.color"
+        />
+      </g>
+    </svg>
+
+    <svg *ngIf="penProperties.type === 'highlighter'">
+      <defs>
+        <linearGradient
+          id="linear-gradient"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#f4f4f4" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Base"
+          x="0"
+          y="0"
+          width="46.264"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feFlood flood-opacity="0.396" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <linearGradient
+          id="linear-gradient-2"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#ebebeb" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Head"
+          x="28.264"
+          y="0"
+          width="38.34"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-2" />
+          <feFlood flood-opacity="0.396" />
+          <feComposite operator="in" in2="blur-2" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <filter
+          id="Color_Band"
+          x="23.264"
+          y="0"
+          width="23"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-3" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-3" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <filter
+          id="Path_46"
+          x="48.604"
+          y="6"
+          width="29.396"
+          height="28"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-4" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-4" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="Pen" transform="translate(67.684 6) rotate(90)">
+        <g transform="matrix(0, -1, 1, 0, -6, 67.68)" filter="url(#Base)">
+          <rect
+            id="Base-2"
+            data-name="Base"
+            width="22"
+            height="55"
+            transform="translate(37.26 6) rotate(90)"
+            fill="url(#linear-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 67.68)" filter="url(#Head)">
+          <path
+            id="Head-2"
+            data-name="Head"
+            d="M475,231.249c0-9.276,6-2.353,6-20.34h10c.163,17.986,6,11.064,6,20.337"
+            transform="translate(268.51 -469) rotate(90)"
+            fill="url(#linear-gradient-2)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 67.68)" filter="url(#Color_Band)">
+          <rect
+            id="Color_Band-2"
+            data-name="Color Band"
+            width="22"
+            height="5"
+            transform="translate(37.26 6) rotate(90)"
+            [style.fill]="penProperties.color + 'bf'"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 67.68)" filter="url(#Path_46)">
+          <path
+            id="Pen_Tip"
+            data-name="Pen_Tip"
+            d="M3.784,1.394,7.805,3.8C10.217,5.642,9.952,5.388,10,8.719V12H0V2.815C0,.559,1.24-.071,3.784,1.394Z"
+            transform="translate(69.6 12) rotate(90)"
+            [style.fill]="penProperties.color"
+          />
+        </g>
+      </g>
+    </svg>
+
+    <svg *ngIf="penProperties.type === 'laserPointer'">
+      <defs>
+        <linearGradient
+          id="linear-gradient"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#f4f4f4" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Base"
+          x="0"
+          y="0"
+          width="37.95"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <linearGradient
+          id="linear-gradient-2-laser"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#f0e7e7" />
+          <stop offset="0.103" stop-color="#bebebe" />
+          <stop offset="0.224" stop-color="#e8e8e8" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#a3a3a3" />
+          <stop offset="1" stop-color="#b7b7b7" />
+        </linearGradient>
+        <filter
+          id="Head"
+          x="19.95"
+          y="0"
+          width="33.947"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-2" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-2" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <filter
+          id="Head-2"
+          x="35.897"
+          y="6"
+          width="38"
+          height="22"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-3" />
+          <feFlood [style.flood-color]="penProperties.color" />
+          <feComposite operator="in" in2="blur-3" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <radialGradient
+          id="radial-gradient"
+          cx="0.262"
+          cy="0.5"
+          r="0.759"
+          gradientTransform="matrix(1, 0, 0, 0.739, 0, 0.13)"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#fff" />
+          <stop offset="0.375" stop-color="#eaeaea" />
+          <stop offset="0.875" stop-color="#b2b1b1" />
+          <stop offset="1" stop-color="#bcbcbc" />
+        </radialGradient>
+        <filter
+          id="Button"
+          x="13.488"
+          y="12.5"
+          width="11"
+          height="11"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="1" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="0.5" result="blur-4" />
+          <feFlood flood-opacity="0.212" />
+          <feComposite operator="in" in2="blur-4" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <radialGradient
+          id="radial-gradient-2"
+          cx="0.5"
+          cy="0.5"
+          r="0.327"
+          gradientTransform="translate(0 -0.052) scale(1 1.104)"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#fff" />
+          <stop offset="1" [style.stop-color]="penProperties.color" />
+        </radialGradient>
+        <filter
+          id="Ellipse_2"
+          x="52.003"
+          y="3.865"
+          width="26"
+          height="26"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-5" />
+          <feFlood [style.flood-color]="penProperties.color" />
+          <feComposite operator="in" in2="blur-5" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+
+      <g id="Pen" transform="translate(74.341 6) rotate(90)">
+        <g transform="matrix(0, -1, 1, 0, -6, 74.34)" filter="url(#Base)">
+          <rect
+            id="Base-2"
+            data-name="Base"
+            width="22"
+            height="55"
+            transform="translate(29 6) rotate(90)"
+            fill="url(#linear-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 74.34)" filter="url(#Head)">
+          <path
+            id="Head-3"
+            data-name="Head"
+            d="M2,0H20a2,2,0,0,1,2,2V16a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V2A2,2,0,0,1,2,0Z"
+            transform="translate(45 6) rotate(90)"
+            fill="url(#linear-gradient-2-laser)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 74.34)" filter="url(#Head-2)">
+          <rect
+            id="Head-4"
+            data-name="Head"
+            width="4"
+            height="20"
+            transform="translate(64.9 15) rotate(90)"
+            [style.fill]="penProperties.color"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 74.34)" filter="url(#Button)">
+          <circle
+            id="Button-2"
+            data-name="Button"
+            cx="4"
+            cy="4"
+            r="4"
+            transform="translate(23 13) rotate(90)"
+            fill="url(#radial-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 74.34)" filter="url(#Ellipse_2)">
+          <circle
+            id="Ellipse_2-2"
+            data-name="Ellipse 2"
+            cx="4"
+            cy="4"
+            r="4"
+            transform="translate(69.05 12.87) rotate(90)"
+            fill="url(#radial-gradient-2)"
+          />
+        </g>
+      </g>
+    </svg>
+
+    <svg *ngIf="penProperties.type === 'eraser'">
+      <defs>
+        <linearGradient
+          id="linear-gradient"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#ebebeb" />
+          <stop offset="0.103" stop-color="#e2e2e2" />
+          <stop offset="0.224" stop-color="#f4f4f4" />
+          <stop offset="0.313" stop-color="#fff" />
+          <stop offset="0.524" stop-color="#fff" />
+          <stop offset="0.739" stop-color="#e3e3e3" />
+          <stop offset="1" stop-color="#aaa" />
+        </linearGradient>
+        <filter
+          id="Base"
+          x="0"
+          y="0"
+          width="56"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+        <linearGradient
+          id="linear-gradient-2-eraser"
+          y1="0.5"
+          x2="1"
+          y2="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#e26f6f" />
+          <stop offset="0.103" stop-color="#d55b5b" />
+          <stop offset="0.224" stop-color="#e35f5f" />
+          <stop offset="0.313" stop-color="#e26f6f" />
+          <stop offset="0.524" stop-color="#e26f6f" />
+          <stop offset="0.749" stop-color="#db6161" />
+          <stop offset="1" stop-color="#e37676" />
+        </linearGradient>
+        <filter
+          id="Tip"
+          x="38"
+          y="0"
+          width="40"
+          height="40"
+          filterUnits="userSpaceOnUse"
+        >
+          <feOffset dy="3" input="SourceAlpha" />
+          <feGaussianBlur stdDeviation="3" result="blur-2" />
+          <feFlood flood-opacity="0.161" />
+          <feComposite operator="in" in2="blur-2" />
+          <feComposite in="SourceGraphic" />
+        </filter>
+      </defs>
+      <g id="Eraser" transform="translate(77.463 6) rotate(90)">
+        <g transform="matrix(0, -1, 1, 0, -6, 77.46)" filter="url(#Base)">
+          <rect
+            id="Base-2"
+            data-name="Base"
+            width="22"
+            height="55"
+            transform="translate(47 6) rotate(90)"
+            fill="url(#linear-gradient)"
+          />
+        </g>
+        <g transform="matrix(0, -1, 1, 0, -6, 77.46)" filter="url(#Tip)">
+          <path
+            id="Tip-2"
+            data-name="Tip"
+            d="M5,0H17a5,5,0,0,1,5,5V22a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V5A5,5,0,0,1,5,0Z"
+            transform="translate(69 6) rotate(90)"
+            fill="url(#linear-gradient-2-eraser)"
+          />
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <pen-settings-menu
+    [isOpen]="menuOpened"
+    [penProperties]="penProperties"
+    (penPropertiesChange)="onPenPropertiesChange($event)"
+  ></pen-settings-menu>
+</div>

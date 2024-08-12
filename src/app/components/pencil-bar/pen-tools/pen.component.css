@@ -1,0 +1,19 @@
+.container {
+  overflow-x: hidden;
+  pointer-events: all;
+}
+
+path {
+  stroke: none;
+  stroke-width: 0;
+}
+
+svg {
+  height: 34px;
+  transform: translate(-20px, 0);
+  transition: ease-in-out 0.15s;
+}
+
+.selected svg {
+  transform: translate(0px, 0) !important;
+}

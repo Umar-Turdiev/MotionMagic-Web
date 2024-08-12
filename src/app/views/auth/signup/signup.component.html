@@ -1,0 +1,93 @@
+<base-auth-ui *ngIf="!firstVerificationSent">
+  <div class="text-page-title font-bold unselectable">Sign up</div>
+  <div id="title-description" class="text-normal unselectable">
+    See where the magic happens.
+  </div>
+
+  <div id="textbox-group" class="vertical-stack-layout">
+    <div class="custom-textbox">
+      <input
+        type="text"
+        placeholder="Display name"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+    <div
+      *ngIf="usernameErrorMessage !== ''"
+      class="text-normal error-text unselectable"
+    >
+      ⚠ {{ usernameErrorMessage }}
+    </div>
+
+    <div class="custom-textbox">
+      <input
+        type="email"
+        autocomplete="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div
+      *ngIf="emailErrorMessage !== ''"
+      class="text-normal error-text unselectable"
+    >
+      ⚠ {{ emailErrorMessage }}
+    </div>
+
+    <div class="custom-textbox">
+      <input
+        type="password"
+        autocomplete="new-password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div
+      *ngIf="passwordErrorMessage !== ''"
+      class="text-normal error-text unselectable"
+    >
+      ⚠ {{ passwordErrorMessage }}
+    </div>
+
+    <div class="custom-textbox">
+      <input
+        type="password"
+        autocomplete="new-password"
+        placeholder="Confirm password"
+        [(ngModel)]="confirmPassword"
+        required
+      />
+    </div>
+    <div
+      *ngIf="confirmPasswordErrorMessage !== ''"
+      class="text-normal error-text unselectable"
+    >
+      ⚠ {{ confirmPasswordErrorMessage }}
+    </div>
+  </div>
+
+  <button id="login-botton" class="custom-button" (click)="signUp()">
+    <span>Sign up</span>
+  </button>
+
+  <div class="horizontal-stack-layout">
+    <a [routerLink]="'/login'" class="text-normal">← Back to log in</a>
+  </div>
+</base-auth-ui>
+
+<base-auth-ui *ngIf="firstVerificationSent">
+  <div class="text-page-title font-bold unselectable">Email Verification</div>
+  <div id="title-description" class="text-normal unselectable">
+    Please check your email for a verification link.
+  </div>
+
+  <button class="custom-button" (click)="resendVerificationEmail()">
+    <span *ngIf="!isCooldownActive">Resend Verification Email</span>
+    <span *ngIf="isCooldownActive"
+      >Please wait {{ cooldownTime }}s before sending again.</span
+    >
+  </button>
+</base-auth-ui>

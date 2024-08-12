@@ -1,0 +1,142 @@
+<div class="container panel cr-15 bg1-bg has-border bg-blur unselectable">
+  <div class="menu-item text-normal font-bold">Demo Project</div>
+
+  <div class="separator-vertical"></div>
+
+  <div
+    class="menu-item text-normal"
+    [class.active]="activeTab === 'project'"
+    (click)="toggleDropdown('project')"
+    (mouseenter)="openDropdown('project')"
+  >
+    Project
+    <div
+      *ngIf="showDropdown['project']"
+      class="dropdown-container bg1-bg bg-blur has-border shadow"
+    >
+      <div>New</div>
+      <div>Open...</div>
+      <div>Open Recent</div>
+      <div>Download</div>
+      <div>See All Projects</div>
+    </div>
+  </div>
+
+  <div
+    class="menu-item text-normal"
+    [class.active]="activeTab === 'edit'"
+    (click)="toggleDropdown('edit')"
+    (mouseenter)="openDropdown('edit')"
+  >
+    Edit
+    <div
+      *ngIf="showDropdown['edit']"
+      class="dropdown-container bg1-bg bg-blur has-border shadow"
+    >
+      <div (click)="onEditButtonPress('cut')">Cut</div>
+      <div (click)="onEditButtonPress('copy')">Copy</div>
+      <div (click)="onEditButtonPress('paste')">Paste</div>
+      <div (click)="onEditButtonPress('duplicate')">Duplicate</div>
+      <div (click)="onEditButtonPress('delete')">Delete</div>
+      <div (click)="onEditButtonPress('undo')">Undo</div>
+      <div (click)="onEditButtonPress('redo')">Redo</div>
+      <div (click)="onEditButtonPress('selectAll')">Seleact All</div>
+      <div (click)="onEditButtonPress('group')">Group</div>
+      <div (click)="onEditButtonPress('ungroup')">Ungroup</div>
+    </div>
+  </div>
+
+  <div
+    class="menu-item text-normal"
+    [class.active]="activeTab === 'view'"
+    (click)="toggleDropdown('view')"
+    (mouseenter)="openDropdown('view')"
+  >
+    View
+    <div
+      *ngIf="showDropdown['view']"
+      class="dropdown-container bg1-bg bg-blur has-border shadow"
+    >
+      <div (click)="onViewButtonPress('100%')">100%</div>
+      <div (click)="onViewButtonPress('zoomIn')">Zoom In</div>
+      <div (click)="onViewButtonPress('zoomOut')">Zoom Out</div>
+      <div (click)="onViewButtonPress('pan')">Focus Selected</div>
+    </div>
+  </div>
+
+  <div
+    class="menu-item text-normal"
+    [class.active]="activeTab === 'share'"
+    (click)="toggleDropdown('share')"
+    (mouseenter)="openDropdown('share')"
+  >
+    Share
+    <div
+      *ngIf="showDropdown['share']"
+      class="dropdown-container bg1-bg bg-blur has-border shadow"
+    >
+      <div>Invite Others</div>
+      <div>Permission Settings</div>
+    </div>
+  </div>
+
+  <div
+    class="menu-item text-normal"
+    [class.active]="activeTab === 'help'"
+    (click)="toggleDropdown('help')"
+    (mouseenter)="openDropdown('help')"
+  >
+    Help
+    <div
+      *ngIf="showDropdown['help']"
+      class="dropdown-container bg1-bg bg-blur has-border shadow"
+    >
+      <div>User Guide</div>
+      <div>Restart Tutorial</div>
+      <div>Report Problem</div>
+      <div>Acknowledgments</div>
+    </div>
+  </div>
+
+  <div class="separator-vertical"></div>
+
+  <div class="mode-switcher text-normal">
+    <label class="radio-label">
+      <input
+        type="radio"
+        name="mode"
+        value="construction"
+        [(ngModel)]="selectedMode"
+        (change)="onModeChange()"
+      />
+      <span>Construct</span>
+    </label>
+
+    <!-- <label class="radio-label">
+            <input type="radio" name="mode" value="states" [(ngModel)]="selectedMode" (change)="onModeChange()">
+            <span>States</span>
+        </label> -->
+
+    <label class="radio-label">
+      <input
+        type="radio"
+        name="mode"
+        value="annotate"
+        [(ngModel)]="selectedMode"
+        (change)="onModeChange()"
+      />
+      <span>Annotate</span>
+    </label>
+
+    <label class="radio-label">
+      <input
+        type="radio"
+        name="mode"
+        value="simulation"
+        [(ngModel)]="selectedMode"
+        (change)="onModeChange()"
+      />
+      <span>Simulate</span>
+    </label>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div>
+    <div class="text-container" *ngIf="!isEditing" (click)="enterEditMode()" [ngClass]="externalClasses">{{ value }}</div>
+    <input #labelInput *ngIf="isEditing" type="text" [(ngModel)]="value" [style.fontSize]="fontSize" [ngClass]="externalClasses" (blur)="exitEditMode()" (keypress)="handleKeyPress($event)">
+</div>

@@ -1,0 +1,59 @@
+<div class="viewport-area" (keydown)="onKeyDown($event)" tabindex="0">
+  <viewport></viewport>
+</div>
+
+<div class="menu-bar">
+  <menu-bar></menu-bar>
+</div>
+
+<div class="panel-overlay">
+  <div class="left-column">
+    <edit-toolbar *ngIf="currentViewportMode === 'construction'"></edit-toolbar>
+
+    <pencil-bar *ngIf="currentViewportMode === 'annotate'"></pencil-bar>
+  </div>
+
+  <div class="middle-column"></div>
+
+  <div class="right-column" *ngIf="currentViewportMode === 'construction'">
+    <div
+      class="scene-explorer-section"
+      (keydown)="onKeyDown($event)"
+      tabindex="1"
+    >
+      <scene-explorer-panel></scene-explorer-panel>
+    </div>
+
+    <div class="properties-section">
+      <properties-panel></properties-panel>
+    </div>
+  </div>
+</div>
+
+<div class="play-pause-control">
+  <play-pause-control
+    *ngIf="currentViewportMode === 'simulation'"
+  ></play-pause-control>
+</div>
+
+<div
+  #zoomIndicator
+  class="zoom-indicator text-large bg2-bg bg-blur has-border cr-10 shadow unselectable"
+></div>
+
+<button
+  *ngIf="currentViewportMode === 'construction'"
+  class="open-solver-button bg2-bg has-border cr-15 bg-blur"
+  (click)="openSolver()"
+>
+  <i class="fa-solid fa-wand-sparkles"></i>
+  AI Solver
+</button>
+
+<div class="solver-container" [ngClass]="{ 'show-solver-popup': isSolverOpen }">
+  <div class="dim-background" (click)="closeSolver()"></div>
+  <button class="close-solver-button panel" (click)="closeSolver()">
+    <i class="fa-solid fa-xmark"></i>
+  </button>
+  <solver [ngClass]="{ reveal: isSolverOpen }"></solver>
+</div>

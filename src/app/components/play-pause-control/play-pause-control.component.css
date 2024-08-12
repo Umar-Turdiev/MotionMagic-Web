@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  padding: 6px;
+}
+
+.container > * {
+  margin-right: 6px;
+
+  align-self: center;
+}
+
+.container > :last-child {
+  margin-right: 0;
+}
+
+button {
+  width: 38px;
+  height: 38px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+}

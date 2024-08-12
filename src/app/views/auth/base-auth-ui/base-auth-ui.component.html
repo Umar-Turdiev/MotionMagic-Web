@@ -1,0 +1,25 @@
+<div class="outer-container">
+  <div class="container">
+    <div class="clipping-container">
+      <div class="rotated-rectangle rectangle1"></div>
+      <div class="rotated-rectangle rectangle2"></div>
+      <div class="rotated-rectangle rectangle3"></div>
+    </div>
+
+    <button class="return-to-home" [routerLink]="'/'">← Return home</button>
+
+    <div class="image-container">
+      <img
+        src="../../assets/images/mac-ipad-mockup.png"
+        class="scalable-image"
+      />
+    </div>
+
+    <div
+      id="login-panel"
+      class="vertical-input-stack bg1-bg-opaque has-border cr-50"
+    >
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

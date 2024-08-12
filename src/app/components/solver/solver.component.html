@@ -1,0 +1,74 @@
+<div
+  class="container bg1-bg-opaque has-border"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onFileDropped($event)"
+>
+  <div #content class="content">
+    <div class="image-preview-container">
+      <div *ngFor="let image of images; let i = index" class="image-preview">
+        <img [src]="image.url" alt="Uploaded Image" />
+        <button class="remove-btn" (click)="removeImage(i)">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="user-input-box horizontal-stack-layout bg2-bg-opaque cr-15">
+      <textarea
+        #textInput
+        class="text-input"
+        placeholder="Type your problem here or drop an image..."
+        (input)="onTextInput($event)"
+        rows="1"
+      ></textarea>
+      <div class="input-button-group horizontal-stack-layout">
+        <button class="submit-btn primary-bg" (click)="openFileDialog()">
+          <i class="fa-regular fa-file-image"></i>
+        </button>
+        <button class="submit-btn accent-bg" (click)="submit()">
+          <i class="fa-solid fa-arrow-up"></i>
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngIf="aiResponse"
+      [mathjax]="aiResponse"
+      class="ai-response-box text-normal"
+    ></div>
+
+    <button
+      *ngIf="isSolving"
+      class="stop-response-btn accent-bg btn-under-response-box"
+      (click)="stopResponse()"
+    >
+      <i class="fa-regular fa-circle-stop"></i>
+      Stop
+    </button>
+
+    <button
+      *ngIf="isResponseComplete"
+      class="clear-response-btn btn-under-response-box"
+      (click)="clearResponse()"
+    >
+      <i class="fa-regular fa-trash-can"></i>
+      Clear response
+    </button>
+  </div>
+
+  <div
+    *ngIf="isSolving"
+    [@inOutAnimation]
+    class="animated-border-box-glow"
+  ></div>
+  <div *ngIf="isSolving" [@inOutAnimation] class="animated-border-box"></div>
+
+  <div
+    class="file-drag-overlay"
+    [ngClass]="{ reveal: isFileDraggedOver }"
+    (drop)="onFileDropped($event)"
+  >
+    Drop image here (PNG/JPG)
+  </div>
+</div>

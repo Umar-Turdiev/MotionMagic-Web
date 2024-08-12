@@ -1,0 +1,5 @@
+<div class="textbox-container" [style.width]="width">
+  <div class="text-tiny">{{ title }}</div>
+  <input type="text" class="text-normal" [maxlength]="maxLength" [(ngModel)]="value" (blur)="onBlur($event)"/>
+  <div class="underline has-border"></div>
+</div>

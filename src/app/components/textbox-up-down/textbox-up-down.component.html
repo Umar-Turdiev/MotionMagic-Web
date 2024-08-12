@@ -1,0 +1,15 @@
+<div class="textbox-container" [style.width]="width">
+  <input class="primary-bg text-normal" type="text" [(ngModel)]="_displayValue" (blur)="onBlur($event)"/>
+  <div class="buttons">
+    <button class="accent-bg" (click)="increment()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17.719" height="8.326" viewBox="0 0 17.719 8.326">
+        <path id="Up" d="M1310.551,382.523l7.454-5.92,7.454,5.92" transform="translate(-1309.146 -375.602)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </svg>    
+    </button>
+    <button class="accent-bg" (click)="decrement()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17.719" height="8.325" viewBox="0 0 17.719 8.325">
+        <path id="Down" d="M0,5.92,7.454,0l7.454,5.92" transform="translate(16.314 7.325) rotate(180)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </svg>      
+    </button>
+  </div>
+</div>

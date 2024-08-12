@@ -1,0 +1,15 @@
+<div
+  class="parent-container panel bg1-bg cr-30 has-border bg-blur unselectable"
+  [ngClass]="{ collapsed: isCollapsed }"
+>
+  <div
+    class="title text-small primary-bg unselectable"
+    (click)="toggleCollapse()"
+  >
+    <div class="title-text">{{ title }}</div>
+  </div>
+
+  <div #content class="content" tabindex="-1">
+    <ng-content></ng-content>
+  </div>
+</div>

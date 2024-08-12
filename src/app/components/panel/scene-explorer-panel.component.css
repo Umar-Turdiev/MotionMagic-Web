@@ -1,0 +1,38 @@
+.explorer-panel {
+  width: inherit;
+  border-collapse: collapse;
+}
+
+.explorer-panel td {
+  display: flex;
+  align-items: center;
+
+  height: 30px;
+
+  text-align: left;
+  padding: 0px 10px;
+
+  border-radius: 10px;
+}
+
+.even {
+  background-color: #2f2f4091;
+}
+
+.odd {
+  background-color: transparent;
+}
+
+.selected {
+  background-color: #6b6b99;
+}
+
+.flat-top {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+
+.flat-bottom {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}

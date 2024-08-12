@@ -1,0 +1,40 @@
+<div #menuElement
+class="dropdown-container bg1-bg bg-blur cr-15 has-border shadow"
+[style.top.px]="preferredPosition.top"
+[style.left.px]="preferredPosition.left"
+[ngClass]="{ 'hide-dropdown': isOpen === false }"
+(mousedown)="onColorPickerMouseDown($event)" (touchstart)="onColorPickerTouchStart($event)">    
+<!-- this belongs to the menu, removed for now...
+[style.top.px]="calculatedTop()"
+[style.left.px]="calculatedLeft()"
+[style.height.px]="calcularedHeight()"
+ -->
+
+<div class="dropdown-content">
+    <dropdown [selectedValue]="penProperties.type" (selectedValueChange)="selectedPenTypeChange($event)">
+        <option value="pen">Pen</option>
+        <option value="highlighter">Highlighter</option>
+        <option value="laserPointer">Laser Pointer</option>
+    </dropdown>
+    
+    <color-picker [hsv]="colorHSV" (colorChange)="onColorChange($event)"
+    [opacity]="opacity" (opacityChange)="onOpacityChange($event)"></color-picker>
+    
+    <div class="horizontal-stack-layout">
+        <div class="text-normal">Thickness</div>
+        <textbox-up-down [value]="penProperties.thickness.toString()" (valueChanged)="onThicknessChange($event)"></textbox-up-down>
+    </div>
+    
+    <div id="preview-window" class="bg1-bg-opaque">
+        <svg id="pen-preview">
+            <ng-container>
+                <path #penPreviewElement 
+                [attr.d]="getPreviewPenPath()" 
+                [class.square-linecap]="penProperties.type === 'highlighter'"
+                transform="translate(-16 -387)"/>
+            </ng-container>
+        </svg>      
+    </div>
+</div>
+
+</div>

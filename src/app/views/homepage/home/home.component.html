@@ -1,0 +1,202 @@
+<div class="navbar" [ngClass]="{ expand: menuOpen }">
+  <div class="navbar-container">
+    <div class="navbar-brand">Motion Magic</div>
+
+    <div class="navbar-links">
+      <a href="/">Learn</a>
+      <a href="/">New Features</a>
+      <a href="/">For Educators</a>
+    </div>
+
+    <div class="navbar-buttons">
+      <button class="navbar-button" [routerLink]="'/login'">Login</button>
+      <!-- <button class="navbar-button" [routerLink]="'/signup'">Sign up</button> -->
+      <button
+        class="navbar-button navbar-highlighted-button"
+        [routerLink]="'/simulator'"
+      >
+        Try for free
+      </button>
+
+      <div class="navbar-toggle fa-solid fa-bars" (click)="toggleMenu()"></div>
+    </div>
+  </div>
+
+  <div class="dropdown-navbar-links" [ngClass]="{ expand: menuOpen }">
+    <a [ngClass]="{ expand: menuOpen }" href="/">Learn</a>
+    <a [ngClass]="{ expand: menuOpen }" href="/">New Features</a>
+    <a [ngClass]="{ expand: menuOpen }" href="/">For Educators</a>
+  </div>
+</div>
+
+<div class="hero-section">
+  <h1 class="text-large">
+    On Demand <br />
+    Physics Intelligence
+  </h1>
+  <h2>
+    Motion Magic is your ultimate physics simulator for mastering your classical
+    mechanics class.
+  </h2>
+  <img
+    class="intro-image"
+    src="../../assets/images/home-intro-big-display-showcase.png"
+  />
+</div>
+
+<div class="section-container">
+  <div class="section">
+    <h2 class="colored-h2">Intelligent Problem Solver</h2>
+    <h2>Quick, detailed solutions.</h2>
+    <p>
+      Experience the precise problem-solving with in-depth, step-by-step
+      explanations, enhancing your understanding and saving time.
+    </p>
+    <img src="../../assets/images/home-section-problem-solver.png" />
+  </div>
+
+  <div class="section">
+    <h2 class="colored-h2">Exceptional User Experience</h2>
+    <h2>Intuitive and enjoyable.</h2>
+    <p>
+      Designed with you in mind, Motion Magic offers a user-friendly interface
+      that ensures a smooth and enjoyable learning journey.
+    </p>
+    <img src="assets/images/Ipad-Air-(no-pen).png" />
+  </div>
+
+  <div class="detailed-section-container">
+    <div class="detailed-section">
+      <div class="detailed-section-texts">
+        <h2>Infinite Canvas</h2>
+        <p>
+          Manage all your notes and questions in a single, infinite canvas.
+          Enjoy the simplicity and organization of a unified workspace.
+        </p>
+      </div>
+      <img src="../../assets/images/Ipad-Air-(no-pen).png" />
+    </div>
+
+    <div class="detailed-section">
+      <div class="detailed-section-texts">
+        <h2>Math Inputs</h2>
+        <p>
+          Enter simple math equations directly into the textboxs for instant
+          calculations. Experience seamless, all-in-one mathematical input and
+          results.
+        </p>
+      </div>
+      <img src="assets/images/home-detailed-section-math-inputs.png" />
+    </div>
+
+    <div class="detailed-section">
+      <div class="detailed-section-texts">
+        <h2>Vector/Polar Converter</h2>
+        <p>
+          Easily convert vector quantities like velocity or force between
+          component and polar forms. Simplify your calculations with this
+          intuitive, two-way conversion tool.
+        </p>
+      </div>
+      <img
+        src="assets/images/home-detailed-section-vector-polar-convertor.png"
+      />
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="colored-h2">Scene Editor</h2>
+    <h2>Shape design simplified.</h2>
+    <p>
+      Create, edit, and customize scenes with ease using our intuitive visual
+      editor. Drag, scale, move, rotate, and more, with support for undo, redo,
+      and copy-paste functionality. Design and explore different shapes
+      seamlessly.
+    </p>
+    <img src="assets/images/home-section-scene-editor.png" />
+  </div>
+
+  <div class="section">
+    <h2 class="colored-h2">Effortless Note-Taking</h2>
+    <h2>Sketch, Write, Discover.</h2>
+    <p>
+      Seamlessly integrate with pen input, Motion Magic allows you to
+      effortlessly annotate and solve problems right on your device.
+    </p>
+    <img src="assets/images/home-section-note-taking.png" />
+  </div>
+
+  <div class="detailed-section-container">
+    <div class="detailed-section-container">
+      <div class="detailed-section">
+        <div class="detailed-section-texts">
+          <h2>Personalize Pens</h2>
+          <p>
+            Explore a versatile range of pen tools, from standard pens to
+            highlighters and laser pens, all fully customizable with options for
+            color, thickness, and transparency. Tailor your pencil bar to suit
+            your needs for effective annotation and teaching. You can even
+            rearrange the order of tools for personalized efficiency.
+          </p>
+        </div>
+        <img
+          src="../../assets/images/home-detailed-section-personalize-pens copy.png"
+        />
+      </div>
+
+      <div class="detailed-section">
+        <div class="detailed-section-texts">
+          <h2>Laser Pen</h2>
+          <p>
+            Teach without messing up your notes. Use the laser pen for temporary
+            annotations. Notes fade away after a few seconds, ensuring a
+            stress-free experience.
+          </p>
+        </div>
+        <img src="../../assets/images/Ipad-Air-(no-pen).png" />
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="colored-h2">Live Collaboration</h2>
+    <h2>Unite, and work together.</h2>
+    <p>
+      Live collaboration where multiple users can work together on projects
+      simultaneously. Perfect for enhancing teamwork in lab classes, study
+      sessions, and online learning environments, this tool provides shared
+      editing and communication features to boost productivity and interaction.
+    </p>
+    <img src="assets/images/Cross-Plateform.png" />
+  </div>
+
+  <div class="section">
+    <h2 class="colored-h2">Cross Platform Accessibility</h2>
+    <h2>Use anywhere, anytime.</h2>
+    <p>
+      Motion Magic runs directly in your browser, offering consistent
+      functionality across all devices.
+    </p>
+    <img src="assets/images/Cross-Plateform.png" />
+  </div>
+</div>
+
+<footer>
+  <div class="row">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <div class="row">
+    <ul>
+      <li><a href="#">Contact us</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+    </ul>
+  </div>
+
+  <div class="row">Motion Magic Copyright © 2024 - All rights reserved</div>
+</footer>

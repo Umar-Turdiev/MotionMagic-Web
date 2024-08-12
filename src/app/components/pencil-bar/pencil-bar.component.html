@@ -1,0 +1,46 @@
+<div class="container panel cr-30 bg1-bg has-border bg-blur unselectable">
+  <label>
+    <input
+      type="radio"
+      name="selectedPenTool"
+      [(ngModel)]="selectedPenToolId"
+      [value]="-10"
+      [id]="-10"
+      (change)="onPenSelectionChange(-10)"
+    />
+    <pen
+      [penId]="-10"
+      [penProperties]="eraserProperties"
+      [selected]="selectedPenToolId == -10"
+      (penPropertiesChange)="onPenPropertiesChange($event)"
+    ></pen>
+  </label>
+
+  <div class="pen-list" cdkDropList (cdkDropListDropped)="penDropped($event)">
+    <div
+      *ngFor="let pen of pens"
+      class="pen-box"
+      cdkDrag
+      [cdkDragData]="pen"
+      cdkDragLockAxis="y"
+      cdkDragBoundary=".pen-list"
+    >
+      <label>
+        <input
+          type="radio"
+          name="selectedPenTool"
+          [(ngModel)]="selectedPenToolId"
+          [value]="pen.first"
+          [id]="pen.first"
+          (change)="onPenSelectionChange(pen.first)"
+        />
+        <pen
+          [penId]="pen.first"
+          [penProperties]="pen.second"
+          [selected]="selectedPenToolId == pen.first"
+          (penPropertiesChange)="onPenPropertiesChange($event)"
+        ></pen>
+      </label>
+    </div>
+  </div>
+</div>

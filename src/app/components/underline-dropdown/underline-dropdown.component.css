@@ -1,0 +1,37 @@
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.horizontal-stack-layout {
+  margin: 0 2px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  background-color: transparent;
+  position: absolute;
+  top: 45%;
+  right: 0px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  width: fit-content;
+  margin-right: 2px !important;
+}
+
+.dropdown-arrow svg {
+  display: block;
+}
+
+.underline {
+  border-radius: 2px;
+}

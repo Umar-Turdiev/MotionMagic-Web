@@ -1,0 +1,79 @@
+{
+  "scene_name": "Demo Scene",
+  "author": "UT",
+  "created_at": "2023-12-03 12:00:00",
+  "last_modified_at": "2024-04-06 13:51:15",
+  "settings": {
+    "gravity": {
+      "x": 0,
+      "y": -9.81
+    },
+    "time_step": 0.02
+  },
+  "objects": {
+    "1": {
+      "name": "Floor",
+      "isStatic": true,
+      "objectType": "rectangle",
+      "position": {
+        "x": 675,
+        "y": 357
+      },
+      "dimension": {
+        "width": 160,
+        "height": 10
+      },
+      "rotation": 17,
+      "mass": 0,
+      "friction": {
+        "static": 0.3,
+        "kinetic": 0.33
+      },
+      "linearVelocity": {
+        "x": 0,
+        "y": 0
+      },
+      "lengthUnit": "m",
+      "angleUnit": "°",
+      "massUnit": "kg",
+      "linearVelocityUnit": "m/s",
+      "hasFill": true,
+      "fillColor": "#368bbbff",
+      "hasBorder": true,
+      "borderColor": "#2878a6ff",
+      "borderThickness": 1
+    },
+    "2": {
+      "name": "Cube",
+      "isStatic": false,
+      "objectType": "rectangle",
+      "position": {
+        "x": 663.7,
+        "y": 325.1
+      },
+      "dimension": {
+        "width": 23,
+        "height": 6
+      },
+      "rotation": 0,
+      "mass": 10,
+      "friction": {
+        "static": 0.3,
+        "kinetic": 0.33
+      },
+      "linearVelocity": {
+        "x": 0,
+        "y": 0
+      },
+      "lengthUnit": "m",
+      "angleUnit": "°",
+      "massUnit": "kg",
+      "linearVelocityUnit": "m/s",
+      "hasFill": true,
+      "fillColor": "#368bffff",
+      "hasBorder": true,
+      "borderColor": "#2776e6ff",
+      "borderThickness": 1
+    }
+  }
+}

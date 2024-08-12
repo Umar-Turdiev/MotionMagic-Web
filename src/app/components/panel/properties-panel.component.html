@@ -1,0 +1,451 @@
+<base-panel #basePanel [title]="'Object Properties'">
+  <div *ngIf="getSelectedId() === '-1'" class="text-normal">
+    Select something to view its properties...
+  </div>
+
+  <div *ngIf="getSelectedId() !== '-1'" class="container">
+    <editable-label
+      class="section-title-text text-large font-bold"
+      [value]="getName()"
+      (valueChanged)="setName($event)"
+    ></editable-label>
+    <div *ngIf="getIsMultiEditing()" class="multi-selection-reminder">
+      Multiple Objects Selected
+    </div>
+
+    <div class="panel-section" *ngIf="!getIsConstraint()">
+      <div class="horizontal-stack-layout">
+        <div class="text-normal">
+          Static Object: {{ getIsStatic() ? "Yes" : "No" }}
+        </div>
+        <toggle-switch
+          class="align-right"
+          [checked]="getIsStatic()"
+          (checkedChange)="setIsStatic($event)"
+        ></toggle-switch>
+      </div>
+
+      <div class="panel-section">
+        <div class="section-title-text text-large">Transform</div>
+
+        <div class="panel-sub-section">
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">X</div>
+                <textbox-up-down
+                  [value]="getX()"
+                  (valueChanged)="setX($event)"
+                ></textbox-up-down>
+              </div>
+
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">Y</div>
+                <textbox-up-down
+                  [value]="getY()"
+                  (valueChanged)="setY($event)"
+                ></textbox-up-down>
+              </div>
+
+              <div
+                *ngIf="getObjectType() === 'circle'"
+                class="horizontal-stack-layout"
+              >
+                <div class="property-text-XY text-normal">r</div>
+                <textbox-up-down
+                  [value]="getRadius()"
+                  (valueChanged)="setRadius($event)"
+                ></textbox-up-down>
+              </div>
+
+              <div
+                *ngIf="getObjectType() === 'rectangle'"
+                class="horizontal-stack-layout"
+              >
+                <div class="property-text-XY text-normal">W</div>
+                <textbox-up-down
+                  [value]="getWidth()"
+                  (valueChanged)="setWidth($event)"
+                ></textbox-up-down>
+              </div>
+
+              <div
+                *ngIf="getObjectType() === 'rectangle'"
+                class="horizontal-stack-layout"
+              >
+                <div class="property-text-XY text-normal">H</div>
+                <textbox-up-down
+                  [value]="getHeight()"
+                  (valueChanged)="setHeight($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="cm">cm</option>
+              <option value="m">m</option>
+              <option value="km">km</option>
+              <option value="inch">inch</option>
+              <option value="mile">mile</option>
+            </dropdown>
+          </div>
+
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">θ</div>
+                <textbox-up-down
+                  [value]="getRotation()"
+                  (valueChanged)="setRotation($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="deg">°</option>
+              <option value="radient">rad</option>
+            </dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="separator-horizontal"></div>
+
+      <div *ngIf="getIsStatic() === false" class="panel-section">
+        <div class="section-title-text text-large">Initial Velocity</div>
+
+        <div class="panel-sub-section">
+          <div class="horizontal-stack-layout">
+            <div class="text-normal">
+              Vector Form: {{ isVectorForm ? "Yes" : "No" }}
+            </div>
+            <toggle-switch
+              class="align-right"
+              [(checked)]="isVectorForm"
+            ></toggle-switch>
+          </div>
+        </div>
+
+        <div *ngIf="isVectorForm === false" class="panel-sub-section">
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">Vᵢₓ</div>
+                <textbox-up-down
+                  [value]="getLinearVelocityX()"
+                  (valueChanged)="setLinearVelocityX($event)"
+                ></textbox-up-down>
+              </div>
+
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">Vᵢᵧ</div>
+                <textbox-up-down
+                  [value]="getLinearVelocityY()"
+                  (valueChanged)="setLinearVelocityY($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="ms">m/s</option>
+              <option value="kph">km/h</option>
+              <option value="mph">mph</option>
+            </dropdown>
+          </div>
+        </div>
+
+        <div *ngIf="isVectorForm === true" class="panel-sub-section">
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">Vᵢ</div>
+                <textbox-up-down
+                  [value]="getLinearVelocityMagnitude()"
+                  (valueChanged)="setLinearVelocityMagnitude($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="ms">m/s</option>
+              <option value="kph">km/h</option>
+              <option value="mph">mph</option>
+            </dropdown>
+          </div>
+
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">θ</div>
+                <textbox-up-down
+                  [value]="getLinearVelocityAngle()"
+                  (valueChanged)="setLinearVelocityAngle($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="deg">°</option>
+              <option value="radient">rad</option>
+            </dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="getIsStatic() === false" class="separator-horizontal"></div>
+
+      <div *ngIf="getIsStatic() === false" class="panel-section">
+        <div class="section-title-text text-large">Mass</div>
+
+        <div class="panel-sub-section">
+          <div class="horizontal-stack-layout">
+            <div class="vertical-stack-layout">
+              <div class="horizontal-stack-layout">
+                <div class="property-text-XY text-normal">M</div>
+                <textbox-up-down
+                  [value]="getMass()"
+                  (valueChanged)="setMass($event)"
+                ></textbox-up-down>
+              </div>
+            </div>
+
+            <dropdown width="90px">
+              <option value="g">g</option>
+              <option value="kg">kg</option>
+              <option value="lb">lb</option>
+            </dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="getIsStatic() === false" class="separator-horizontal"></div>
+
+      <div class="panel-section">
+        <div class="section-title-text text-large">Friction</div>
+
+        <div class="horizontal-stack-layout">
+          <div class="horizontal-stack-layout">
+            <div class="property-text-XY text-normal">μₛ</div>
+            <textbox-up-down
+              [delta]="0.1"
+              [value]="getStaticFriction()"
+              (valueChanged)="setStaticFriction($event)"
+            ></textbox-up-down>
+          </div>
+
+          <div class="horizontal-stack-layout">
+            <div class="property-text-XY text-normal">μₖ</div>
+            <textbox-up-down
+              [delta]="0.1"
+              [value]="getKineticFriction()"
+              (valueChanged)="setKineticFriction($event)"
+            ></textbox-up-down>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section" *ngIf="getIsConstraint()">
+      <div class="section-title-text text-large">Anchor</div>
+
+      <div class="panel-sub-section">
+        <div class="vertical-stack-layout">
+          <div class="horizontal-stack-layout">
+            <div class="text-normal">Free to Rotate</div>
+            <toggle-switch
+              class="align-right"
+              [checked]="getFreeToRotate()"
+              (checkedChange)="setFreeToRotate($event)"
+            ></toggle-switch>
+          </div>
+
+          <div class="horizontal-stack-layout">
+            <div class="property-text text-normal">Body A</div>
+
+            <dropdown
+              width="159px"
+              [selectedValue]="getConstraintBodyA()"
+              (selectedValueChange)="setConstraintBodyA($event)"
+            >
+              <option value="-1">{{ noConstraintWarning }}</option>
+              <ng-container *ngFor="let pair of getObjectIdNamePair()">
+                <ng-container
+                  *ngIf="
+                    !isConstraintInOtherDropdown(
+                      pair.first,
+                      getConstraintBodyB()
+                    )
+                  "
+                >
+                  <option [value]="pair.first">{{ pair.second }}</option>
+                </ng-container>
+              </ng-container>
+            </dropdown>
+          </div>
+
+          <div class="horizontal-stack-layout">
+            <div class="property-text text-normal">Body B</div>
+            <dropdown
+              width="159px"
+              [selectedValue]="getConstraintBodyB()"
+              (selectedValueChange)="setConstraintBodyB($event)"
+            >
+              <option value="-1">{{ noConstraintWarning }}</option>
+              <ng-container *ngFor="let pair of getObjectIdNamePair()">
+                <ng-container
+                  *ngIf="
+                    !isConstraintInOtherDropdown(
+                      pair.first,
+                      getConstraintBodyA()
+                    )
+                  "
+                >
+                  <option [value]="pair.first">{{ pair.second }}</option>
+                </ng-container>
+              </ng-container>
+            </dropdown>
+          </div>
+        </div>
+      </div>
+
+      <div class="separator-horizontal"></div>
+
+      <div class="section-title-text text-large">Dimensions</div>
+
+      <div class="horizontal-stack-layout">
+        <div class="vertical-stack-layout">
+          <div class="horizontal-stack-layout">
+            <div class="property-text text-normal">Size</div>
+            <textbox-up-down
+              [value]="getRotation()"
+              (valueChanged)="setRotation($event)"
+            ></textbox-up-down>
+          </div>
+        </div>
+
+        <dropdown width="90px">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+          <option value="km">km</option>
+          <option value="inch">inch</option>
+          <option value="mile">mile</option>
+        </dropdown>
+      </div>
+
+      <div class="separator-horizontal"></div>
+
+      <div class="horizontal-stack-layout">
+        <div class="section-title-text text-large">Motor</div>
+        <toggle-switch
+          class="align-right"
+          [checked]="getHasMotor()"
+          (checkedChange)="setHasMotor($event)"
+        ></toggle-switch>
+      </div>
+
+      <div class="horizontal-stack-layout">
+        <div class="vertical-stack-layout">
+          <div class="horizontal-stack-layout">
+            <div class="property-text text-normal">Speed</div>
+            <textbox-up-down
+              [value]="getTargetVelocity()"
+              (valueChanged)="setTargetVelocity($event)"
+            ></textbox-up-down>
+          </div>
+        </div>
+
+        <dropdown width="90px">
+          <option value="cm">cm</option>
+          <option value="m">m</option>
+          <option value="km">km</option>
+          <option value="inch">inch</option>
+          <option value="mile">mile</option>
+        </dropdown>
+      </div>
+    </div>
+
+    <div class="separator-horizontal"></div>
+
+    <div class="panel-section">
+      <div class="section-title-text text-large">Appearence</div>
+
+      <div class="vertical-stack-layout">
+        <div
+          [ngClass]="{ 'collapes-color-picker': !expandFillColorPicker }"
+          class="color-picker-container"
+          #colorPickerContainer
+        >
+          <color-picker
+            *ngIf="renderFillColorPicker"
+            [hex]="getFillColor()"
+            (colorChange)="setFillColor($event)"
+            [opacity]="getFillOpacity()"
+            (opacityChange)="setFillOpacity($event)"
+          ></color-picker>
+        </div>
+
+        <div class="horizontal-stack-layout">
+          <input
+            type="checkbox"
+            [checked]="getHasFill()"
+            (change)="setHasFill($event)"
+            [disabled]="!getHasBorder()"
+          />
+          <div
+            class="colorPreview cr-5"
+            [style.backgroundColor]="getFillColor()"
+            (click)="toggleFillColorPicker($event)"
+          ></div>
+          <div class="text-normal">Fill</div>
+        </div>
+        <div *ngIf="!getHasBorder()" class="color-checkbox-reminder">
+          One must be checked
+        </div>
+      </div>
+
+      <div class="vertical-stack-layout">
+        <div
+          [ngClass]="{ 'collapes-color-picker': !expandBorderColorPicker }"
+          class="color-picker-container"
+          #colorPickerContainer
+        >
+          <color-picker
+            *ngIf="renderBorderColorPicker"
+            [hex]="getBorderColor()"
+            (colorChange)="setBorderColor($event)"
+            [opacity]="getBorderOpacity()"
+            (opacityChange)="setBorderOpacity($event)"
+            (finishiColorChange)="finishiBorderSetting($event)"
+          ></color-picker>
+        </div>
+
+        <div class="horizontal-stack-layout">
+          <input
+            type="checkbox"
+            [checked]="getHasBorder()"
+            (change)="setHasBorder($event)"
+            [disabled]="!getHasFill()"
+          />
+          <div
+            class="colorPreview cr-5"
+            [style.backgroundColor]="getBorderColor()"
+            (click)="toggleBorderColorPicker($event)"
+          ></div>
+          <div class="text-normal">Border</div>
+        </div>
+        <div *ngIf="!getHasFill()" class="color-checkbox-reminder">
+          One must be checked
+        </div>
+
+        <div class="horizontal-stack-layout border-thickness-section">
+          <div class="text-normal">Thickness</div>
+          <textbox-up-down
+            [value]="getBorderThickness()"
+            (valueChanged)="setBorderThickness($event)"
+            [isPositiveOnly]="true"
+          ></textbox-up-down>
+        </div>
+      </div>
+    </div>
+  </div>
+</base-panel>

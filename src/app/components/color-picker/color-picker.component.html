@@ -1,0 +1,39 @@
+<div class="container">
+  <div id="color-picker-container" (mousedown)="onColorPickerMouseDown($event)">
+    <canvas id="color-picker" #colorPickerElement width="160" height="160"></canvas>
+    <div id="color-picker-pointer" #colorPickerPointerElement></div>
+  </div>
+  
+  <div class="slider" #valueSlider (mousedown)="onValueSliderMouseDown($event)">
+    <div class="slider-handle" #valueHandle></div>
+  </div>
+  
+  <div class="checker-board slider" #opacitySlider (mousedown)="onOpacitySliderMouseDown($event)">
+    <div id="opacity-overlay" #opacityOverlay></div>
+    <div class="slider-handle" #opacityHandle></div>
+  </div>
+  
+  <div class="horizontal-stack-layout">
+    <underline-dropdown [width]="'52px'" [(selectedValue)]="selectedColorSpace">
+      <option value="hsv">HSV</option>
+      <option value="rgb">RGB</option>
+      <option value="hex">HEX</option>
+    </underline-dropdown>
+    
+    <div *ngIf="selectedColorSpace === 'hsv'" class="horizontal-stack-layout three-digit-width">
+      <underline-textbox [value]="colorHSV.hue" (valueChange)="SetHSVHue($event)" [title]="'H'" [min]="0" [max]="360" [maxLength]="3"></underline-textbox>
+      <underline-textbox [value]="colorHSV.saturation" (valueChange)="SetHSVSaturation($event)" [title]="'S'" [min]="0" [max]="100" [maxLength]="3"></underline-textbox>
+      <underline-textbox [value]="colorHSV.value" (valueChange)="SetHSVValue($event)" [title]="'V'" [min]="0" [max]="100" [maxLength]="3"></underline-textbox>
+    </div>
+    
+    <div *ngIf="selectedColorSpace === 'rgb'" class="horizontal-stack-layout three-digit-width">
+      <underline-textbox [value]="colorRGB.red" (valueChange)="SetRGBRed($event)" [title]="'R'" [min]="0" [max]="255" [maxLength]="3"></underline-textbox>
+      <underline-textbox [value]="colorRGB.green" (valueChange)="SetRGBGreen($event)" [title]="'G'" [min]="0" [max]="255" [maxLength]="3"></underline-textbox>
+      <underline-textbox [value]="colorRGB.blue" (valueChange)="SetRGBBlue($event)" [title]="'B'" [min]="0" [max]="255" [maxLength]="3"></underline-textbox>
+    </div>
+    
+    <underline-textbox *ngIf="selectedColorSpace === 'hex'" class="hex-input" [stringInput]="true" [value]="colorHEX" (stringValueChange)="SetHEX($event)" [width]="'100%'"></underline-textbox>
+    
+    <underline-textbox [value]="opacity" (valueChange)="SetOpacity($event)" [width]="'30px'" [title]="'A'" [min]="0" [max]="100"></underline-textbox>
+  </div>
+</div>

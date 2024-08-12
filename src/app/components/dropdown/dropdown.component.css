@@ -1,0 +1,31 @@
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-left: 5px;
+  padding-right: 35px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+  height: 100%;
+  width: 30px;
+  border-radius: 0px 5px 5px 0px;
+  pointer-events: none;
+}
+
+.dropdown-arrow svg {
+  display: block;
+  margin: 10px auto;
+}

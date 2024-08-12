@@ -1,0 +1,10 @@
+<div class="dropdown-container">
+    <select class="primary-bg text-normal" [style.width]="width" [(ngModel)]="selectedValue" (ngModelChange)="onValueChange($event)">
+        <ng-content></ng-content>
+    </select>
+    <div class="dropdown-arrow accent-bg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17.736" height="10.293" viewBox="0 0 17.736 10.293">
+            <path id="Down" d="M0,7.879,7.454,0l7.454,7.879" transform="translate(16.322 9.293) rotate(180)" fill="none" stroke-width=2/>
+        </svg>
+    </div>
+</div>
